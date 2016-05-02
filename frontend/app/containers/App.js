@@ -15,8 +15,17 @@ const App = React.createClass({
   componentWillMount(){
     navigator.geolocation.getCurrentPosition(function(position) {
       console.log(position.coords.latitude, position.coords.longitude);
-    })
+      this.setState({
+        currentLat: position.coords.latitude,
+        currentLong: position.coords.longitude
+
+      })
+      console.log(this.state.currentLat, this.state.currentLong);
+    }.bind(this))
+
+
   },
+
   render: function() {
     return (
       <div className="app-container">
