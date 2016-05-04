@@ -7,7 +7,8 @@ const PositionSearch = React.createClass({
       <div>
         <div className='current-position-button'>
           <p>This is the current position search</p>
-          <button>Search</button>
+          <button
+            onClick={this.props.ajaxCallFourSquare}>Search</button>
         </div>
         <div className='postcode-search'>
           <p>This is the postal code position search</p>

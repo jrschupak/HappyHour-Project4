@@ -6,7 +6,7 @@ const searchButtonsContainer = React.createClass({
     return(
       <div className="search-buttons">
         <p>this is where the buttons will go</p>
-        <PositionSearch />
+        <PositionSearch ajaxCallFourSquare={this.props.ajaxCallFourSquare}/>
       </div>
     )
   }
