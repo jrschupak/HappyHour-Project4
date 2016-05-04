@@ -12,7 +12,7 @@ const display = React.createClass({
           return <Place data={placeData} />;
         })}
         </div>
-        <Place/>
+
       </div>
     )
   }

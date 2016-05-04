@@ -14,8 +14,6 @@ const App = React.createClass({
       currentLong: 0,
       currentLat: 0,
       ajaxReturn: [],
-
-      returnName: "Establishment's Name",
       returnAddress: 'Address'
     }
   },
@@ -63,7 +61,7 @@ const App = React.createClass({
       <div className="app-container">
         <h1>Hello world</h1>
         <SearchButtonsContainer ajaxCallFourSquare={this.fourSquareAjaxCall}/>
-        <DisplayContainer ajaxReturn={this.state.ajaxReturn}/>
+        <DisplayContainer ajaxReturn={this.state.ajaxReturn} />
       </div>
 
     )

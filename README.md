@@ -10,3 +10,8 @@ Steps:
 2) Understand the endpoints for Yelp API
 3) Understand the google geo location API and get it to work
 4) Wireframe and design the logic of the app.
+5)Meet Up api
+
+BACKEND:
+  Allow people to add their name to a "attending" list that is displayed.
+  Auth/ Login
