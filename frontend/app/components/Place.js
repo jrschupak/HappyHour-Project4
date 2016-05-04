@@ -21,6 +21,7 @@ const Place = React.createClass({
   render: function(){
     if(this.props.data){
       console.log("data: ",this.props.data.snippets.items[0].detail.object.id);
+      console.log(this.props.data.venue.name);
       // this.setState({
       //   firstname: this.props.data
       // });
@@ -31,8 +32,10 @@ const Place = React.createClass({
     // console.log("fuck:", fuck.snippets)
       return(
         <div>
-          // <h1>NADDA</h1>
-          <h1>{this.props.data.snippets.items[0].detail.object.id}</h1>
+          <h1>{this.props.data.venue.name}</h1>
+          <p>{this.props.data.snippets.items[0].detail.object.title}</p>
+          <p>{this.props.data.snippets.items[0].detail.object.message}</p>
+          <p>{this.props.data.snippets.items[0].detail.object.finePrint}</p>
 
         </div>
       )
