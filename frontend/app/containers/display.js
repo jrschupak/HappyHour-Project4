@@ -1,7 +1,8 @@
 import React from 'react';
 import Place from '../components/Place';
+import ZipCodePlaces from '../components/zipCodePlaces';
 
-const display = React.createClass({
+const Display = React.createClass({
 
   render: function(){
     console.log('ajaxReturn: ', this.props.ajaxReturn);
@@ -12,10 +13,9 @@ const display = React.createClass({
           return <Place data={placeData} />;
         })}
         </div>
-
       </div>
     )
   }
 });
 
-export default display;
+export default Display;

@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Place = React.createClass({
   // getInitialState: function(){
   //   return{
@@ -26,7 +27,7 @@ const Place = React.createClass({
       //   firstname: this.props.data
       // });
     }else{
-      console.log("FUCK")
+      console.log("FUUDGE")
     }
     // var fuck = this.props.data;
     // console.log("fuck:", fuck.snippets)
@@ -36,7 +37,9 @@ const Place = React.createClass({
           <p>{this.props.data.snippets.items[0].detail.object.title}</p>
           <p>{this.props.data.snippets.items[0].detail.object.message}</p>
           <p>{this.props.data.snippets.items[0].detail.object.finePrint}</p>
-
+          <p>{this.props.data.venue.location.formattedAddress[0]} <br></br> {this.props.data.venue.location.formattedAddress[1]}</p>
+          <p>{this.props.data.venue.contact.formattedPhone}</p>
+          <p>Likes  {this.props.data.tips[0].likes.count}</p>
         </div>
       )
 
