@@ -8,7 +8,6 @@ const Display = React.createClass({
     console.log('ajaxReturn: ', this.props.ajaxReturn);
     return (
       <div className='display-container'>
-        <p>THIS IS THE DISPLAY CONTAINER</p>
         <div>{this.props.ajaxReturn.map(function(placeData) {
           return <Place data={placeData} />;
         })}

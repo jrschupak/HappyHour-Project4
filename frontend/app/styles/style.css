@@ -1,0 +1,47 @@
+body {
+  background: deeppink;
+}
+
+.search {
+  position: relative;
+  top: 150px;
+}
+.search-buttons{
+  display: flex;
+  justify-content: space-around;
+}
+
+.current-button {
+  position: relative;
+
+ }
+
+ .current-position-container {
+   background: lightgray;
+   width: 30%;
+   text-align: center;
+ }
+
+ .postcode-search {
+   background: lightgray;
+   width: 30%;
+   height: 80px;
+   text-align: center;
+ }
+
+.input-search {
+  position: relative;
+}
+
+.zip-comp {
+  border: 5px dotted black;
+}
+
+.place-comp {
+  border: 5px dotted black;
+}
+
+.display-container {
+  position: relative;
+  top: 150px;
+}

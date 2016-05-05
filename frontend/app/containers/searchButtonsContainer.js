@@ -34,23 +34,27 @@ const SearchButtonsContainer = React.createClass({
 
   render: function(){
     return(
-      <div className="search-buttons">
-        <p>this is where the buttons will go</p>
-          <div>
-            <div className='current-position-button'>
-              <p>This is the current position search</p>
+      <div className="search">
+          <div className='search-buttons'>
+            <div className='current-position-container'>
+              <h4>To Search specials in your current location click</h4>
               <button
+                className="current-button"
                 onClick={this.props.ajaxCallFourSquare}>Search</button>
             </div>
             <div className='postcode-search'>
-              <p>This is the postal code position search</p>
-              <input className="zipcode-input" type="text" placeholder="Type zipcode" value={this.props.zipCode}
-              onChange={this.handleChange}/>
-              <button onClick={this.inputFourSquareAjaxCall}>Search</button>
+              <h4>To search for specials in a specific area</h4>
+              <div className='input-search'>
+                <input className="zipcode-input" type="text" placeholder="Type zipcode" value={this.props.zipCode}
+                onChange={this.handleChange}/>
+                <button
+                  className="zipcode button" onClick={this.inputFourSquareAjaxCall}>Search</button>
+              </div>
+
             </div>
           </div>
-            <div>{this.state.zipCodeAjaxReturn.map(function(placeData) {
-              return <div><h1>{placeData.venue.name}</h1> <p>{placeData.snippets.items[0].detail.object.title}</p>
+            <div className="zipcode-display">{this.state.zipCodeAjaxReturn.map(function(placeData) {
+              return <div className='zip-comp'><h1>{placeData.venue.name}</h1> <p>{placeData.snippets.items[0].detail.object.title}</p>
               <p>{placeData.snippets.items[0].detail.object.message}</p>
               <p>{placeData.snippets.items[0].detail.object.finePrint}</p>
               <p>{placeData.venue.location.formattedAddress[0]} <br></br> {placeData.venue.location.formattedAddress[1]}</p>

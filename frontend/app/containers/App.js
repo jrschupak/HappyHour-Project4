@@ -90,7 +90,8 @@ const App = React.createClass({
   render: function() {
     return (
       <div className="app-container">
-        <h1>Hello world</h1>
+        <h1>HAPPY HOUR</h1>
+        <h2>Find Happy Hour Specials in your area</h2>
         <SearchButtonsContainer ajaxCallFourSquare={this.fourSquareAjaxCall} inputFourSquareAjaxCall={this.inputFourSquareAjaxCall}/>
         <DisplayContainer ajaxReturn={this.state.ajaxReturn}/>
 

@@ -32,7 +32,7 @@ const Place = React.createClass({
     // var fuck = this.props.data;
     // console.log("fuck:", fuck.snippets)
       return(
-        <div>
+        <div className="place-comp">
           <h1>{this.props.data.venue.name}</h1>
           <p>{this.props.data.snippets.items[0].detail.object.title}</p>
           <p>{this.props.data.snippets.items[0].detail.object.message}</p>
