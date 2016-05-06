@@ -1,7 +1,37 @@
 import React from 'react';
-
+import axios from 'axios';
 
 const Place = React.createClass({
+
+  getInitialState: function(){
+    return({
+      comment: []
+    })
+  },
+
+  addComment: function(){
+    console.log(this.state.comment);
+    var comment = { comment: {
+      content: this.state.comment,
+      place_id: this.props.data.snippets.items[0].detail.object.id
+    }}
+    axios.post('http://localhost:3000/comments.json', comment)
+    .then(function(response){
+      console.log('response: ', response.data);
+     this.setState({
+       comment: response.data
+     })
+     console.log('comment: ', this.state.comment);
+    }.bind(this))
+  },
+
+  handleChange: function(event){
+    this.setState({
+      comment: event.target.value
+    });
+    // console.log(this.state.zipCode);
+    console.log(this.state.comment);
+  },
   // getInitialState: function(){
   //   return{
   //     firstname: ""
@@ -40,7 +70,12 @@ const Place = React.createClass({
           <p>{this.props.data.venue.location.formattedAddress[0]} <br></br> {this.props.data.venue.location.formattedAddress[1]}</p>
           <p>{this.props.data.venue.contact.formattedPhone}</p>
           <p>Likes  {this.props.data.tips[0].likes.count}</p>
+          <input className="local-input" type="text" placeholder="Your Comment" value={this.props.comment}
+          onChange={this.handleChange}/>
+        <button onClick={this.addComment}>Add Comment</button>
+          <p>This is where the comments will display</p>
         </div>
+
       )
 
 

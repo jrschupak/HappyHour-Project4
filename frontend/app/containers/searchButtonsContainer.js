@@ -1,3 +1,4 @@
+
 import React from 'react';
 import axios from 'axios';
 import ClientIdSecret from '../apiKeys';
@@ -8,7 +9,8 @@ import ZipCodePlaces from '../components/zipCodePlaces';
 const SearchButtonsContainer = React.createClass({
   getInitialState: function(){
     return({
-      zipCodeAjaxReturn: []
+      zipCodeAjaxReturn: [],
+      comment2: []
     })
   },
 
@@ -29,6 +31,29 @@ const SearchButtonsContainer = React.createClass({
       zipCode: event.target.value
     });
     console.log(this.state.zipCode);
+  },
+
+  handleChangeComment: function(event){
+    this.setState({
+      comment2: event.target.value
+    });
+    console.log(this.state.comment);
+  },
+
+  addComment: function(){
+    console.log(this.state.comment2);
+    var comment2 = { comment: {
+      content: this.state.comment2,
+      place_id: this.props.data.snippets.items[0].detail.object.id
+    }}
+    axios.post('http://localhost:3000/comments.json', comment2)
+    .then(function(response){
+      console.log('response: ', response.data);
+     this.setState({
+       comment2: response.data
+     })
+     console.log('comment: ', this.state.comment);
+    }.bind(this))
   },
 
 
@@ -59,9 +84,20 @@ const SearchButtonsContainer = React.createClass({
               <p>{placeData.snippets.items[0].detail.object.finePrint}</p>
               <p>{placeData.venue.location.formattedAddress[0]} <br></br> {placeData.venue.location.formattedAddress[1]}</p>
               <p>{placeData.venue.contact.formattedPhone}</p>
-              <p>Likes  {placeData.tips[0].likes.count}</p></div>
+              <p>Likes  {placeData.tips[0].likes.count}</p>
+              <div>
+
+              </div>
+
+            </div>
+            <input className="zpCode-input" type="text" placeholder="Your Comment" value={this.state.comment2}
+            onChange={this.handleChangeComment}/>
+            <button onClick={this.addComment}>Add Comment</button>
+            <p>This is where the comments will display</p>
+
               })}
             </div>
+
       </div>
 
     )
