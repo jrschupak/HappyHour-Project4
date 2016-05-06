@@ -10,7 +10,7 @@ const SearchButtonsContainer = React.createClass({
   getInitialState: function(){
     return({
       zipCodeAjaxReturn: [],
-      comment2: []
+      comment2: ['hi']
     })
   },
 
@@ -34,6 +34,7 @@ const SearchButtonsContainer = React.createClass({
   },
 
   handleChangeComment: function(event){
+    console.log('handleChangeComment is running');
     this.setState({
       comment2: event.target.value
     });
@@ -58,42 +59,51 @@ const SearchButtonsContainer = React.createClass({
 
 
   render: function(){
+    var backgrImage = {
+      backgroundImage: "url('app/styles/images/drinks.jpeg')",
+      webkitBackgroundSize: 'cover',
+      height: '300px',
+      textAlign: 'center'
+    };
+
+    var style = {
+      background: '#CCCACC',
+      textAlign: 'center'
+    }
+
     return(
       <div className="search">
-          <div className='search-buttons'>
-            <div className='current-position-container'>
-              <h4>To Search specials in your current location click</h4>
-              <button
-                className="current-button"
-                onClick={this.props.ajaxCallFourSquare}>Search</button>
-            </div>
-            <div className='postcode-search'>
-              <h4>To search for specials in a specific area</h4>
-              <div className='input-search'>
-                <input className="zipcode-input" type="text" placeholder="Type zipcode" value={this.props.zipCode}
-                onChange={this.handleChange}/>
+          <div className='search-buttons' style={backgrImage}>
+            <div className='search-cont'>
+              <div className='current-position-container'>
+                <h4>To Search specials in your current location click</h4>
                 <button
-                  className="zipcode button" onClick={this.inputFourSquareAjaxCall}>Search</button>
+                  className="current-button"
+                  onClick={this.props.ajaxCallFourSquare}>Search</button>
               </div>
+              <div className='postcode-search'>
+                <h4>To search for specials in a specific area</h4>
+                <div className='input-search'>
+                  <input className="zipcode-input" type="text" placeholder="Type zipcode" value={this.props.zipCode}
+                  onChange={this.handleChange}/>
+                  <button
+                    className="zipcode button" onClick={this.inputFourSquareAjaxCall}>Search</button>
+                </div>
+            </div>
 
             </div>
           </div>
-            <div className="zipcode-display">{this.state.zipCodeAjaxReturn.map(function(placeData) {
-              return <div className='zip-comp'><h1>{placeData.venue.name}</h1> <p>{placeData.snippets.items[0].detail.object.title}</p>
+            <div className="zipcode-display" >{this.state.zipCodeAjaxReturn.map(function(placeData) {
+              return <div style={style} className='zip-comp'><h1>{placeData.venue.name}</h1> <p>{placeData.snippets.items[0].detail.object.title}</p>
               <p>{placeData.snippets.items[0].detail.object.message}</p>
               <p>{placeData.snippets.items[0].detail.object.finePrint}</p>
               <p>{placeData.venue.location.formattedAddress[0]} <br></br> {placeData.venue.location.formattedAddress[1]}</p>
               <p>{placeData.venue.contact.formattedPhone}</p>
               <p>Likes  {placeData.tips[0].likes.count}</p>
-              <div>
 
-              </div>
 
             </div>
-            <input className="zpCode-input" type="text" placeholder="Your Comment" value={this.state.comment2}
-            onChange={this.handleChangeComment}/>
-            <button onClick={this.addComment}>Add Comment</button>
-            <p>This is where the comments will display</p>
+
 
               })}
             </div>

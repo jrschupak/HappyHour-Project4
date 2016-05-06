@@ -4,15 +4,18 @@ body {
 
 .search {
   position: relative;
-  top: 150px;
+  top: 50px;
+  /*background-image: url("party.gif");*/
 }
-.search-buttons{
+.search-cont{
   display: flex;
   justify-content: space-around;
+  position: relative;
+  top: 40%;
 }
 
 .current-button {
-  position: relative;
+
 
  }
 
@@ -34,14 +37,17 @@ body {
 }
 
 .zip-comp {
-  border: 5px dotted black;
+  border: 5px solid black;
+  margin-top: 25px;
 }
 
 .place-comp {
-  border: 5px dotted black;
+  border: 5px solid black;
+  margin-top: 25px;
+  /*background-image:url("Party-drinks.jpg");*/
 }
 
 .display-container {
   position: relative;
-  top: 150px;
+  top: 100px;
 }

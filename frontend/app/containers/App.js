@@ -88,10 +88,23 @@ const App = React.createClass({
   },
 
   render: function() {
+    var backgroundImage = {
+      backgroundImage: "url('app/styles/images/party.gif')",
+      webkitBackgroundSize: 'cover',
+      textAlign: 'center',
+      color: "white",
+      fontSize: '100px',
+      height: '600px'
+    };
+    var hhSpecials = {
+      fontSize: '75px',
+      textAlign: 'center'
+    }
+
     return (
       <div className="app-container">
-        <h1>HAPPY HOUR</h1>
-        <h2>Find Happy Hour Specials in your area</h2>
+        <p className='title' style={backgroundImage}>HAPPY HOUR</p>
+        <p style={hhSpecials}>Find HappyHour Specials</p>
         <SearchButtonsContainer ajaxCallFourSquare={this.fourSquareAjaxCall} inputFourSquareAjaxCall={this.inputFourSquareAjaxCall}/>
         <DisplayContainer ajaxReturn={this.state.ajaxReturn}/>
 

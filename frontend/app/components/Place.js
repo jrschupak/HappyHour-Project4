@@ -5,7 +5,8 @@ const Place = React.createClass({
 
   getInitialState: function(){
     return({
-      comment: []
+      comment: [],
+      loading: true
     })
   },
 
@@ -47,9 +48,24 @@ const Place = React.createClass({
   // },
 
 
-  // componentDidMount()
+  componentDidMount: function() {
+    //(1) make an ajax call to get the comments for this component
+    //(2) when the data comes back, set the state appropriately
+    //(3) make sure to also change the state of 'loading' to false
+  },
 
   render: function(){
+    // if (loading) {
+    //   return
+    //   //shittons of JSX w/ a placeholder line in the comments area
+    // } else {
+    //   return //shittons of JSX with the actual comments
+    // }
+    var style = {
+      background: '#CCCACC',
+      textAlign: 'center'
+    }
+
     if(this.props.data){
       console.log("data: ",this.props.data.snippets.items[0].detail.object.id);
       console.log(this.props.data.venue.name);
@@ -62,7 +78,7 @@ const Place = React.createClass({
     // var fuck = this.props.data;
     // console.log("fuck:", fuck.snippets)
       return(
-        <div className="place-comp">
+        <div className="place-comp" style={style}>
           <h1>{this.props.data.venue.name}</h1>
           <p>{this.props.data.snippets.items[0].detail.object.title}</p>
           <p>{this.props.data.snippets.items[0].detail.object.message}</p>
@@ -73,7 +89,7 @@ const Place = React.createClass({
           <input className="local-input" type="text" placeholder="Your Comment" value={this.props.comment}
           onChange={this.handleChange}/>
         <button onClick={this.addComment}>Add Comment</button>
-          <p>This is where the comments will display</p>
+          <p>Comments</p>
         </div>
 
       )
