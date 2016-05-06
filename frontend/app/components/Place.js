@@ -63,7 +63,9 @@ const Place = React.createClass({
     // }
     var style = {
       background: '#CCCACC',
-      textAlign: 'center'
+      textAlign: 'center',
+      position: 'relative',
+      bottom: '75px'
     }
 
     if(this.props.data){
