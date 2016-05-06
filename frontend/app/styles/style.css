@@ -1,5 +1,5 @@
 body {
-  background: orange;
+  background: #FFFACD;
   margin: 0px;
   position: relative;
   bottom: 100px;
@@ -16,11 +16,6 @@ body {
   top: 40%;
   margin: 0px;
 }
-
-.current-button {
-
-
- }
 
  .current-position-container {
    background: lightgray;
@@ -40,17 +35,27 @@ body {
 }
 
 .zip-comp {
-  border: 5px solid black;
-  margin-top: 25px;
+  border: 1px solid black;
+  margin-top: -1px;
+  opacity: 0.5
+}
+
+.zip-comp:hover {
+  opacity: 1;
 }
 
 .place-comp {
-  border: 5px solid black;
-  margin-bottom: 25px;
+  border: 1px solid black;
+  margin-bottom: -1px;
+  opacity: 0.5;
   /*background-image:url("Party-drinks.jpg");*/
 }
 
 .display-container {
   position: relative;
-  top: 100px;
+  bo: 115px;
+}
+
+.place-comp:hover {
+  opacity: 1;
 }

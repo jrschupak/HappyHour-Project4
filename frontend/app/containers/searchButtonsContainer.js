@@ -63,12 +63,18 @@ const SearchButtonsContainer = React.createClass({
       backgroundImage: "url('app/styles/images/drinks.jpeg')",
       webkitBackgroundSize: 'cover',
       height: '300px',
-      textAlign: 'center'
+      textAlign: 'center',
+      position: 'relative',
+      bottom: '225px'
     };
 
     var style = {
-      background: '#CCCACC',
-      textAlign: 'center'
+      background: '#F0E68C',
+      textAlign: 'center',
+      position: 'relative',
+      bottom: '215px',
+      paddingTop: '25px',
+      paddingBottom: '25px'
     }
 
     var inputStyle = {

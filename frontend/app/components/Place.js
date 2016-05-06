@@ -62,10 +62,11 @@ const Place = React.createClass({
     //   return //shittons of JSX with the actual comments
     // }
     var style = {
-      background: '#CCCACC',
+      background: '#F0E68C',
       textAlign: 'center',
       position: 'relative',
-      bottom: '75px'
+      bottom: '275px',
+
     }
 
     if(this.props.data){

@@ -96,14 +96,26 @@ const App = React.createClass({
       fontSize: '100px',
       height: '600px'
     };
+
+    var title = {
+      fontSize: '100px',
+      color: 'white',
+      textAlign: 'center',
+      position: 'relative',
+      bottom: '434px'
+    }
     var hhSpecials = {
       fontSize: '75px',
-      textAlign: 'center'
+      textAlign: 'center',
+      position: 'relative',
+      bottom: '238px'
+
     }
 
     return (
       <div className="app-container">
-        <p className='title' style={backgroundImage}>HAPPY HOUR</p>
+        <p className='title' style={backgroundImage}></p>
+        <p style={title}>HAPPY HOUR</p>
         <p style={hhSpecials}>Find HappyHour Specials</p>
         <SearchButtonsContainer ajaxCallFourSquare={this.fourSquareAjaxCall} inputFourSquareAjaxCall={this.inputFourSquareAjaxCall}/>
         <DisplayContainer ajaxReturn={this.state.ajaxReturn}/>
