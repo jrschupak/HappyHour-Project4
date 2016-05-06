@@ -29,7 +29,7 @@ const App = React.createClass({
   // },
 
   fuck: function(){
-    console.log("fuck")
+    console.log("fudge")
   },
 
   // Will get the current coordinates of your current location when the window loads.

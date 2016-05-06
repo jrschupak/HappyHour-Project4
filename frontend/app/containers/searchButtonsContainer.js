@@ -72,7 +72,7 @@ const SearchButtonsContainer = React.createClass({
       background: '#F0E68C',
       textAlign: 'center',
       position: 'relative',
-      bottom: '215px',
+      bottom: '200px',
       paddingTop: '25px',
       paddingBottom: '25px'
     }
