@@ -71,6 +71,10 @@ const SearchButtonsContainer = React.createClass({
       textAlign: 'center'
     }
 
+    var inputStyle = {
+      width: '200px'
+    }
+
     return(
       <div className="search">
           <div className='search-buttons' style={backgrImage}>
@@ -100,8 +104,9 @@ const SearchButtonsContainer = React.createClass({
               <p>{placeData.venue.location.formattedAddress[0]} <br></br> {placeData.venue.location.formattedAddress[1]}</p>
               <p>{placeData.venue.contact.formattedPhone}</p>
               <p>Likes  {placeData.tips[0].likes.count}</p>
-
-
+              <input type='text' style={inputStyle} placeholder="Comment goes here"/>
+              <button>Add Comment</button>
+              <p>comments</p>
             </div>
 
 
