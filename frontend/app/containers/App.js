@@ -135,12 +135,30 @@ const App = React.createClass({
       textAlign: 'center',
     }
 
+    var options = {
+    lines: 13,
+    length: 20,
+    width: 10,
+    radius: 30,
+    corners: 1,
+    rotate: 0,
+    direction: 1,
+    color: '#000',
+    speed: 1,
+    trail: 60,
+    shadow: false,
+    hwaccel: false,
+    zIndex: 2e9,
+    top: '84%',
+    left: '50%',
+    scale: .50
+    };
     return (
       <div className="app-container">
         <p className='title' style={backgroundImage}></p>
         <p style={title}>HAPPY HOUR</p>
         <p style={hhSpecials}>Find HappyHour Specials</p>
-        <Loader loaded={this.state.loaded}>
+        <Loader loaded={this.state.loaded} options={options}>
         <SearchButtonsContainer ajaxCallFourSquare={this.fourSquareAjaxCall} inputFourSquareAjaxCall={this.inputFourSquareAjaxCall}/>             </Loader>
 
         <DisplayContainer ajaxReturn={this.state.ajaxReturn}/>
