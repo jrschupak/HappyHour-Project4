@@ -92,10 +92,10 @@ const Place = React.createClass({
           <p>{this.props.data.venue.location.formattedAddress[0]} <br></br> {this.props.data.venue.location.formattedAddress[1]}</p>
           <p>{this.props.data.venue.contact.formattedPhone}</p>
           <p>Likes  {this.props.data.tips[0].likes.count}</p>
-          <input className="local-input" type="text" style={inputStyle} placeholder="Your Comment" value={this.props.comment}
-          onChange={this.handleChange}/>
-        <button onClick={this.addComment}>Add Comment</button>
-          <p>Comments</p>
+            <input className="local-input" type="text" style={inputStyle} placeholder="Your Comment" value={this.props.comment}
+            onChange={this.handleChange}/>
+            <button onClick={this.addComment}>Add Comment</button>
+            <p>Comments</p>
         </div>
 
       )

@@ -1,5 +1,6 @@
 body {
-  background: #FFFACD;
+  /*background: #FFFACD;*/
+  /*background: silver;*/
   margin: 0px;
   position: relative;
   bottom: 100px;
@@ -12,6 +13,9 @@ body {
 .search-cont{
   display: flex;
   justify-content: space-around;
+  /*justify-content: center;*/
+  align-self: center;
+
   position: relative;
   top: 40%;
   margin: 0px;

@@ -3,6 +3,7 @@ import SearchButtonsContainer from './searchButtonsContainer';
 import DisplayContainer from './display';
 import axios from 'axios';
 import ClientIdSecret from '../apiKeys';
+import Loader from 'react-loader';
 
 
 console.log(ClientIdSecret);
@@ -13,10 +14,11 @@ const App = React.createClass({
 
   getInitialState: function() {
     return {
-      currentLong: 0,
-      currentLat: 0,
+      currentLong: '',
+      currentLat: '',
       ajaxReturn: [],
-      returnAddress: 'Address'
+      returnAddress: 'Address',
+      loaded: false
 
     }
   },
@@ -40,8 +42,18 @@ const App = React.createClass({
         currentLat: position.coords.latitude,
         currentLong: position.coords.longitude
       })
+      this.coordinatesLoaded();
       console.log(this.state.currentLat, this.state.currentLong);
     })
+
+  },
+
+  coordinatesLoaded: function(){
+    if(this.state.currentLat){
+      this.setState({
+        loaded: true
+      })
+    }
   },
 
 
@@ -87,7 +99,15 @@ const App = React.createClass({
     }.bind(this))
   },
 
+  // if(this.state.currentLat){
+  //   this.setState({
+  //     loaded: true
+  //   })
+  // };
+
   render: function() {
+
+
     var backgroundImage = {
       backgroundImage: "url('app/styles/images/party.gif')",
       webkitBackgroundSize: 'cover',
@@ -111,15 +131,20 @@ const App = React.createClass({
       bottom: '238px'
 
     }
+    var footer = {
+      textAlign: 'center',
+    }
 
     return (
       <div className="app-container">
         <p className='title' style={backgroundImage}></p>
         <p style={title}>HAPPY HOUR</p>
         <p style={hhSpecials}>Find HappyHour Specials</p>
-        <SearchButtonsContainer ajaxCallFourSquare={this.fourSquareAjaxCall} inputFourSquareAjaxCall={this.inputFourSquareAjaxCall}/>
-        <DisplayContainer ajaxReturn={this.state.ajaxReturn}/>
+        <Loader loaded={this.state.loaded}>
+        <SearchButtonsContainer ajaxCallFourSquare={this.fourSquareAjaxCall} inputFourSquareAjaxCall={this.inputFourSquareAjaxCall}/>             </Loader>
 
+        <DisplayContainer ajaxReturn={this.state.ajaxReturn}/>
+        <p style={footer}>Copyright 2016 Jonathan Schupak</p>
       </div>
 
     )

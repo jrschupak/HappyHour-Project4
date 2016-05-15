@@ -72,26 +72,34 @@ const SearchButtonsContainer = React.createClass({
       background: '#F0E68C',
       textAlign: 'center',
       position: 'relative',
-      bottom: '200px',
+      bottom: '215px',
       paddingTop: '25px',
-      paddingBottom: '25px'
+      paddingBottom: '25px',
     }
 
     var inputStyle = {
       width: '200px'
     }
 
+    var buttonContainers = {
+      opacity: '.5'
+    }
+
+    var buttContText = {
+      opacity: '1.5'
+    }
+
     return(
       <div className="search">
           <div className='search-buttons' style={backgrImage}>
             <div className='search-cont'>
-              <div className='current-position-container'>
-                <h4>To Search specials in your current location click</h4>
+              <div className='current-position-container' style={buttonContainers}>
+                <h4 style={buttContText}>To Search specials in your current location click</h4>
                 <button
                   className="current-button"
                   onClick={this.props.ajaxCallFourSquare}>Search</button>
               </div>
-              <div className='postcode-search'>
+              <div className='postcode-search' style={buttonContainers}>
                 <h4>To search for specials in a specific area</h4>
                 <div className='input-search'>
                   <input className="zipcode-input" type="text" placeholder="Type zipcode" value={this.props.zipCode}
