@@ -10,7 +10,8 @@ const SearchButtonsContainer = React.createClass({
   getInitialState: function(){
     return({
       zipCodeAjaxReturn: [],
-      comment2: ['hi']
+      comment2: ['hi'],
+      messege: "There are no specials in this area"
     })
   },
 
@@ -25,6 +26,10 @@ const SearchButtonsContainer = React.createClass({
      console.log('zipCodeAjaxReturn: ', this.state.zipCodeAjaxReturn);
     }.bind(this))
   },
+
+  // noSpecialsMessege: function(){
+  //   if()
+  // }
 
   handleChange: function(event){
     this.setState({
@@ -107,9 +112,13 @@ const SearchButtonsContainer = React.createClass({
                   <button
                     className="zipcode button" onClick={this.inputFourSquareAjaxCall}>Search</button>
                 </div>
-            </div>
+              </div>
 
             </div>
+
+          </div>
+          <div>
+            <p>{this.state.messege}</p>
           </div>
             <div className="zipcode-display" >{this.state.zipCodeAjaxReturn.map(function(placeData) {
               return <div style={style} className='zip-comp'><h1>{placeData.venue.name}</h1> <p>{placeData.snippets.items[0].detail.object.title}</p>

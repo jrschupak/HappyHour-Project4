@@ -18,8 +18,8 @@ const App = React.createClass({
       currentLat: '',
       ajaxReturn: [],
       returnAddress: 'Address',
-      loaded: false
-
+      loaded: false,
+      message: "This is the place hold for the no results message"
     }
   },
 
@@ -30,7 +30,7 @@ const App = React.createClass({
   //   console.log(this.state.zipCode);
   // },
 
-  fuck: function(){
+  fudge: function(){
     console.log("fudge")
   },
 
@@ -99,11 +99,14 @@ const App = React.createClass({
     }.bind(this))
   },
 
-  // if(this.state.currentLat){
-  //   this.setState({
-  //     loaded: true
-  //   })
-  // };
+  noResultsMessage: function(){
+    if(this.state.ajaxReturn){
+      this.setState({
+        message: "There are no specials going on in this area"
+      })
+    };
+  },
+
 
   render: function() {
 
@@ -160,7 +163,7 @@ const App = React.createClass({
         <p style={hhSpecials}>Find HappyHour Specials</p>
         <Loader loaded={this.state.loaded} options={options}>
         <SearchButtonsContainer ajaxCallFourSquare={this.fourSquareAjaxCall} inputFourSquareAjaxCall={this.inputFourSquareAjaxCall}/>             </Loader>
-
+        <h1>{this.state.message}</h1>
         <DisplayContainer ajaxReturn={this.state.ajaxReturn}/>
         <p style={footer}>Copyright 2016 Jonathan Schupak</p>
       </div>

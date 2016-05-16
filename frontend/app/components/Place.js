@@ -96,6 +96,7 @@ const Place = React.createClass({
             onChange={this.handleChange}/>
             <button onClick={this.addComment}>Add Comment</button>
             <p>Comments</p>
+
         </div>
 
       )
