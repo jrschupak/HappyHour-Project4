@@ -19,7 +19,7 @@ const App = React.createClass({
       ajaxReturn: [],
       returnAddress: 'Address',
       loaded: false,
-      message: "This is the place hold for the no results message"
+      message: " "
     }
   },
 
@@ -93,16 +93,23 @@ const App = React.createClass({
     .then(function(response){
       // console.log(response.data);
      this.setState({
-       ajaxReturn: response.data.response.groups[0].items
+       ajaxReturn: response.data.response.groups[0].items,
+       message: ''
      })
      console.log('ajaxReturn: ', this.state.ajaxReturn);
+     if(!this.state.ajaxReturn.length){
+       this.setState({
+         message: "!!There are no specials going on in this area!!"
+       })
+     };
+
     }.bind(this))
   },
 
   noResultsMessage: function(){
-    if(this.state.ajaxReturn){
+    if(!this.state.ajaxReturn.length){
       this.setState({
-        message: "There are no specials going on in this area"
+        message: "!!There are no specials going on in this area!!"
       })
     };
   },
@@ -156,6 +163,14 @@ const App = React.createClass({
     left: '50%',
     scale: .50
     };
+
+    var noResults = {
+      textAlign: 'center',
+      fontSize: '4em',
+      position: 'relative',
+      bottom: '150px'
+    }
+
     return (
       <div className="app-container">
         <p className='title' style={backgroundImage}></p>
@@ -163,7 +178,7 @@ const App = React.createClass({
         <p style={hhSpecials}>Find HappyHour Specials</p>
         <Loader loaded={this.state.loaded} options={options}>
         <SearchButtonsContainer ajaxCallFourSquare={this.fourSquareAjaxCall} inputFourSquareAjaxCall={this.inputFourSquareAjaxCall}/>             </Loader>
-        <h1>{this.state.message}</h1>
+        <h1 style={noResults}>{this.state.message}</h1>
         <DisplayContainer ajaxReturn={this.state.ajaxReturn}/>
         <p style={footer}>Copyright 2016 Jonathan Schupak</p>
       </div>

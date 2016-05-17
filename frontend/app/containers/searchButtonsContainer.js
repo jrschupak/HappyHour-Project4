@@ -11,7 +11,7 @@ const SearchButtonsContainer = React.createClass({
     return({
       zipCodeAjaxReturn: [],
       comment2: ['hi'],
-      messege: "There are no specials in this area"
+      message: " "
     })
   },
 
@@ -21,15 +21,20 @@ const SearchButtonsContainer = React.createClass({
     .then(function(response){
       console.log(response.data);
      this.setState({
-       zipCodeAjaxReturn: response.data.response.groups[0].items
+       zipCodeAjaxReturn: response.data.response.groups[0].items,
+       message: ''
      })
+    //  this.noSpecialsMessageZip();
+    if(!this.state.zipCodeAjaxReturn.length){
+      this.setState({
+        message: "!!There are no specials in this area at the time!!"
+      })
+    }
      console.log('zipCodeAjaxReturn: ', this.state.zipCodeAjaxReturn);
     }.bind(this))
   },
 
-  // noSpecialsMessege: function(){
-  //   if()
-  // }
+
 
   handleChange: function(event){
     this.setState({
@@ -74,7 +79,7 @@ const SearchButtonsContainer = React.createClass({
     };
 
     var style = {
-      background: '#F0E68C',
+      background: '#D7D8D9',
       textAlign: 'center',
       position: 'relative',
       bottom: '215px',
@@ -87,11 +92,19 @@ const SearchButtonsContainer = React.createClass({
     }
 
     var buttonContainers = {
-      opacity: '.5'
+      opacity: '.75',
+      borderRadius: '10%'
     }
 
     var buttContText = {
       opacity: '1.5'
+    }
+
+    var noResults = {
+      textAlign: 'center',
+      fontSize: '4em',
+      position: 'relative',
+      bottom: '150px'
     }
 
     return(
@@ -99,13 +112,13 @@ const SearchButtonsContainer = React.createClass({
           <div className='search-buttons' style={backgrImage}>
             <div className='search-cont'>
               <div className='current-position-container' style={buttonContainers}>
-                <h4 style={buttContText}>To Search specials in your current location click</h4>
+                <h4 style={buttContText}>Current Location</h4>
                 <button
-                  className="current-button"
+                  className="current button"
                   onClick={this.props.ajaxCallFourSquare}>Search</button>
               </div>
               <div className='postcode-search' style={buttonContainers}>
-                <h4>To search for specials in a specific area</h4>
+                <h4>Search by Zipcode</h4>
                 <div className='input-search'>
                   <input className="zipcode-input" type="text" placeholder="Type zipcode" value={this.props.zipCode}
                   onChange={this.handleChange}/>
@@ -118,7 +131,7 @@ const SearchButtonsContainer = React.createClass({
 
           </div>
           <div>
-            <p>{this.state.messege}</p>
+            <p style={noResults}>{this.state.message}</p>
           </div>
             <div className="zipcode-display" >{this.state.zipCodeAjaxReturn.map(function(placeData) {
               return <div style={style} className='zip-comp'><h1>{placeData.venue.name}</h1> <p>{placeData.snippets.items[0].detail.object.title}</p>
@@ -127,9 +140,7 @@ const SearchButtonsContainer = React.createClass({
               <p>{placeData.venue.location.formattedAddress[0]} <br></br> {placeData.venue.location.formattedAddress[1]}</p>
               <p>{placeData.venue.contact.formattedPhone}</p>
               <p>Likes  {placeData.tips[0].likes.count}</p>
-              <input type='text' style={inputStyle} placeholder="Comment goes here"/>
-              <button>Add Comment</button>
-              <p>comments</p>
+              
             </div>
 
 

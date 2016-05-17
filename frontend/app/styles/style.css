@@ -17,21 +17,30 @@ body {
   align-self: center;
 
   position: relative;
-  top: 40%;
+  top: 20%;
   margin: 0px;
 }
 
  .current-position-container {
-   background: lightgray;
-   width: 30%;
+   background: black;
+   color: white;
+   width: 200px;
+   height: 200px;
    text-align: center;
+   position: relative;
+   left: 10%;
+   font-size: 17px;
  }
 
  .postcode-search {
-   background: lightgray;
-   width: 30%;
-   height: 80px;
+   background: black;
+   color: white;
+   width: 200px;
+   height: 200px;
    text-align: center;
+   position: relative;
+   right: 10%;
+   font-size: 17px;
  }
 
 .input-search {
@@ -62,4 +71,20 @@ body {
 
 .place-comp:hover {
   opacity: 1;
+}
+
+.button {
+  padding: 10%;
+  background: white;
+  color: black;
+  width: 75px;
+  height: 75px;
+  border-radius: 5%;
+  margin-top: 10px;
+}
+
+.current {
+  position: relative;
+  top: 20px;
+
 }
