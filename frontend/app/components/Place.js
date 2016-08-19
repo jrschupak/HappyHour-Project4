@@ -62,7 +62,7 @@ const Place = React.createClass({
     //   return //shittons of JSX with the actual comments
     // }
     var style = {
-      background: '#F0E68C',
+      background: '#D7D8D9',
       textAlign: 'center',
       position: 'relative',
       bottom: '200px',
@@ -82,7 +82,7 @@ const Place = React.createClass({
       console.log("FUUDGE")
     }
     // var fuck = this.props.data;
-    // console.log("fuck:", fuck.snippets)
+    // console.log("fudge:", fudge.snippets)
       return(
         <div className="place-comp" style={style}>
           <h1>{this.props.data.venue.name}</h1>

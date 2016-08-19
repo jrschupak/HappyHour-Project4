@@ -70,9 +70,9 @@ const SearchButtonsContainer = React.createClass({
 
   render: function(){
     var backgrImage = {
-      backgroundImage: "url('app/styles/images/drinks.jpeg')",
+      backgroundImage: "url('app/styles/images/happyHourSplash.jpeg')",
       webkitBackgroundSize: 'cover',
-      height: '300px',
+      height: '500px',
       textAlign: 'center',
       position: 'relative',
       bottom: '225px'
@@ -92,8 +92,9 @@ const SearchButtonsContainer = React.createClass({
     }
 
     var buttonContainers = {
-      opacity: '.75',
-      borderRadius: '10%'
+      // opacity: '.75',
+      borderRadius: '10%',
+      backgroundColor: 'rgba(0, 0, 0, .75)'
     }
 
     var buttContText = {
@@ -140,7 +141,7 @@ const SearchButtonsContainer = React.createClass({
               <p>{placeData.venue.location.formattedAddress[0]} <br></br> {placeData.venue.location.formattedAddress[1]}</p>
               <p>{placeData.venue.contact.formattedPhone}</p>
               <p>Likes  {placeData.tips[0].likes.count}</p>
-              
+
             </div>
 
 

@@ -22,7 +22,7 @@ body {
 }
 
  .current-position-container {
-   background: black;
+   /*background: black;*/
    color: white;
    width: 200px;
    height: 200px;
@@ -33,7 +33,7 @@ body {
  }
 
  .postcode-search {
-   background: black;
+   /*background: black;*/
    color: white;
    width: 200px;
    height: 200px;
